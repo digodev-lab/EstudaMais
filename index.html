@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="description" content="Estuda+ reúne calculadora, anotações e quadro mágico para organizar seus estudos." />
+    <title>Estuda+ | Calculadora e anotações</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand"><span class="brand-mark">✦</span><span>Estuda<span class="brand-accent">+</span></span></div>
+        <p class="sidebar-label">SEU ESPAÇO</p>
+        <nav class="main-nav" aria-label="Navegação principal">
+          <button class="nav-item active" data-view="dashboard"><span>⌂</span> Visão geral</button>
+          <button class="nav-item" data-view="notes"><span>▤</span> Minhas anotações</button>
+          <button class="nav-item" data-view="board"><span>✎</span> Quadro mágico</button>
+          <button class="nav-item" data-view="study"><span>▥</span> Modo estudo</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="study-tip"><span class="tip-icon">☀</span><div><strong>Foco de hoje</strong><small>Pequenos passos, grandes resultados.</small></div></div>
+          <button class="settings-btn" data-view="settings"><span>⚙</span> Configurações</button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div><p class="eyebrow" id="current-date">CARREGANDO DATA</p><h1 id="page-title">Olá, estudante! <span>👋</span></h1></div>
+          <div class="top-actions"><button class="icon-btn" aria-label="Notificações">♧<i></i></button><div class="avatar">ES</div></div>
+        </header>
+
+        <section class="view active" id="dashboard-view">
+          <div class="welcome-card"><div><p class="eyebrow light">SEU CANTINHO DE ESTUDOS</p><h2>Aprenda no seu ritmo.<br /><em>Crie, calcule e evolua.</em></h2><button class="primary-btn" data-view="notes">Começar a estudar <span>→</span></button></div><div class="welcome-art" aria-hidden="true"><span class="sun">☼</span><span class="planet">◒</span><span class="spark spark-a">✦</span><span class="spark spark-b">✧</span></div></div>
+          <div class="section-heading"><div><p class="eyebrow">FERRAMENTAS RÁPIDAS</p><h2>O que você quer fazer?</h2></div></div>
+          <div class="quick-grid">
+            <button class="quick-card coral" data-view="calculator"><span class="quick-icon">＋</span><strong>Fazer um cálculo</strong><small>Resolva contas e veja seu histórico.</small><span class="arrow">↗</span></button>
+            <button class="quick-card lavender" data-view="notes"><span class="quick-icon">▤</span><strong>Escrever uma anotação</strong><small>Organize ideias e resumos de estudo.</small><span class="arrow">↗</span></button>
+            <button class="quick-card mint" data-view="board"><span class="quick-icon">✎</span><strong>Usar o quadro mágico</strong><small>Desenhe ou escreva livremente.</small><span class="arrow">↗</span></button>
+            <button class="quick-card study-card" data-view="study"><span class="quick-icon">▥</span><strong>Modo estudo dividido</strong><small>Calculadora e quadro lado a lado.</small><span class="arrow">↗</span></button>
+          </div>
+          <div class="dashboard-lower"><section class="recent-panel"><div class="section-heading compact"><div><p class="eyebrow">CONTINUE DE ONDE PAROU</p><h2>Notas recentes</h2></div><button class="text-btn" data-view="notes">Ver todas →</button></div><div id="recent-notes" class="recent-list"></div></section><section class="quote-card"><span class="quote-mark">“</span><p>A educação é a arma mais poderosa que você pode usar para mudar o mundo.</p><small>— Nelson Mandela</small></section></div>
+        </section>
+
+        <section class="view" id="calculator-view">
+          <div class="view-heading"><div><p class="eyebrow">FERRAMENTA DE ESTUDO</p><h2>Calculadora</h2><p>Faça seus cálculos e deixe o resultado registrado.</p></div><button class="secondary-btn" data-view="board">✎ Abrir quadro mágico</button></div>
+          <div class="calculator-layout"><div class="calculator-card"><div class="calc-display"><div id="calc-expression"></div><output id="calc-result">0</output></div><div class="calc-memory"><button data-calc="clear">C</button><button data-calc="backspace">⌫</button><button data-calc="operator">%</button><button class="operator" data-value="÷">÷</button><button data-value="7">7</button><button data-value="8">8</button><button data-value="9">9</button><button class="operator" data-value="×">×</button><button data-value="4">4</button><button data-value="5">5</button><button data-value="6">6</button><button class="operator" data-value="-">−</button><button data-value="1">1</button><button data-value="2">2</button><button data-value="3">3</button><button class="operator" data-value="+">+</button><button class="wide" data-value="0">0</button><button data-value=".">,</button><button class="equals" data-calc="equals">=</button></div></div><aside class="history-card"><div class="section-heading compact"><div><p class="eyebrow">SEUS CÁLCULOS</p><h3>Histórico</h3></div><button id="clear-history" class="text-btn">Limpar</button></div><div id="calc-history" class="history-list"><p class="empty-state">Seus cálculos aparecerão aqui.</p></div></aside></div>
+        </section>
+
+        <section class="view" id="notes-view">
+          <div class="view-heading"><div><p class="eyebrow">SEU CADERNO DIGITAL</p><h2>Minhas anotações</h2><p>Guarde seus resumos, fórmulas e ideias em um só lugar.</p></div><button class="primary-btn" id="new-note">＋ Nova anotação</button></div>
+          <div class="notes-layout"><div class="notes-list-panel"><div class="search-box"><span>⌕</span><input id="note-search" placeholder="Buscar anotações..." /></div><div id="notes-list"></div></div><article class="note-editor"><input id="note-title" class="note-title-input" placeholder="Título da anotação" /><div class="note-meta"><span id="note-date">Nova anotação</span><span class="save-state" id="save-state">● Salvo localmente</span></div><div id="note-image-preview" class="note-image-preview"></div><textarea id="note-body" placeholder="Comece a escrever suas ideias aqui...&#10;&#10;Dica: use o quadro mágico para rascunhar fórmulas e desenhos."></textarea><div class="editor-footer"><span>Seus estudos ficam salvos neste dispositivo.</span><div class="editor-actions"><button class="danger-btn small" id="delete-note">Excluir</button><button class="primary-btn small" id="save-note">Salvar anotação</button></div></div></article></div>
+        </section>
+
+        <section class="view" id="board-view">
+          <div class="view-heading"><div><p class="eyebrow">RASCUNHO LIVRE</p><h2>Quadro mágico</h2><p>Desenhe, escreva e visualize seus cálculos.</p></div><div class="board-actions"><button class="secondary-btn" id="clear-board">⌫ Limpar quadro</button></div></div>
+          <div class="board-card"><div class="board-toolbar"><label>Traço <input type="color" id="brush-color" value="#000000" /></label><label>Espessura <input aria-label="Espessura do traço" type="range" id="brush-size" min="1" max="24" value="4" /></label><button class="tool-btn active" aria-pressed="true" id="draw-tool">✎ Desenhar</button><button class="tool-btn" aria-pressed="false" id="text-tool">T Texto</button><input class="board-text-input" id="board-text-input" placeholder="Digite para inserir no quadro" /><label>Letra <input aria-label="Cor da letra" type="color" id="text-color" value="#000000" /></label><label>Tamanho <input aria-label="Tamanho da letra" type="range" id="text-size" min="12" max="64" value="24" /></label><label class="check-label"><input type="checkbox" id="text-bold" /> Negrito</label></div><div class="canvas-wrap"><canvas id="magic-board"></canvas><div class="canvas-hint" id="canvas-hint">Comece a desenhar aqui<br /><small>ou selecione “Texto” para digitar no quadro</small></div></div></div>
+          <div class="saved-boards"><div class="section-heading compact"><div><p class="eyebrow">SEUS RASCUNHOS</p><h3>Quadros salvos</h3></div></div><div class="save-board-row"><input id="board-name-input" placeholder="Nome do quadro" /><button class="primary-btn small" id="save-board">＋ Salvar com nome</button></div><div id="saved-boards-list" class="saved-board-list"></div></div>
+        </section>
+
+        <section class="view" id="study-view">
+          <div class="view-heading"><div><p class="eyebrow">TUDO JUNTO PARA ESTUDAR</p><h2>Modo estudo</h2><p>Calcule e rascunhe sem trocar de tela.</p></div><button class="secondary-btn" data-view="notes">▤ Abrir anotações</button></div>
+          <div class="study-split">
+            <section class="study-pane"><div class="pane-heading"><div><span class="pane-icon coral-icon">＋</span><div><h3>Calculadora</h3><small>Faça a conta e confira o resultado</small></div></div><button class="text-btn" data-view="calculator">Histórico completo →</button></div><div class="calc-display study-display"><div id="study-expression"></div><output id="study-result">0</output></div><div class="calc-memory study-keypad"><button data-study-calc="clear">C</button><button data-study-calc="backspace">⌫</button><button data-study-calc="operator">%</button><button class="operator" data-study-value="÷">÷</button><button data-study-value="7">7</button><button data-study-value="8">8</button><button data-study-value="9">9</button><button class="operator" data-study-value="×">×</button><button data-study-value="4">4</button><button data-study-value="5">5</button><button data-study-value="6">6</button><button class="operator" data-study-value="-">−</button><button data-study-value="1">1</button><button data-study-value="2">2</button><button data-study-value="3">3</button><button class="operator" data-study-value="+">+</button><button class="wide" data-study-value="0">0</button><button data-study-value=".">,</button><button class="equals" data-study-calc="equals">=</button></div></section>
+            <section class="study-pane"><div class="pane-heading"><div><span class="pane-icon mint-icon">✎</span><div><h3>Quadro mágico</h3><small>Rascunhe ou digite uma fórmula</small></div></div><div class="color-dots" aria-label="Cores rápidas da letra"><button class="color-dot selected" aria-label="Preto" aria-pressed="true" data-color="#000000" style="--dot:#000000"></button><button class="color-dot" aria-label="Roxo" aria-pressed="false" data-color="#7167f8" style="--dot:#7167f8"></button><button class="color-dot" aria-label="Coral" aria-pressed="false" data-color="#ff806f" style="--dot:#ff806f"></button><button class="color-dot" aria-label="Verde" aria-pressed="false" data-color="#2aa878" style="--dot:#2aa878"></button></div></div><div class="study-board-toolbar"><button class="tool-btn active" aria-pressed="true" id="study-draw-tool">✎ Desenhar</button><button class="tool-btn" aria-pressed="false" id="study-text-tool">T Texto</button><input class="board-text-input" id="study-text-input" placeholder="Digite uma fórmula" /><label>Tamanho <input aria-label="Tamanho da letra" type="range" id="study-text-size" min="12" max="64" value="24" /></label><label class="check-label"><input type="checkbox" id="study-text-bold" /> Negrito</label><input aria-label="Espessura do traço" type="range" id="study-brush-size" min="1" max="20" value="4" /><button class="text-btn" id="clear-study-board">Limpar</button></div><div class="canvas-wrap study-canvas-wrap"><canvas id="study-board"></canvas><div class="canvas-hint" id="study-canvas-hint">Desenhe ou selecione Texto</div></div><div class="save-study-row"><input id="study-board-name" placeholder="Nome do quadro" /><button class="primary-btn save-study-btn" id="save-study-board">＋ Salvar quadro</button></div></section>
+          </div>
+        </section>
+
+        <section class="view" id="settings-view">
+          <div class="view-heading"><div><p class="eyebrow">PERSONALIZE SUA EXPERIÊNCIA</p><h2>⚙️ Configurações</h2><p>Configure sua conta, estudos, aparência e privacidade.</p></div></div>
+          <div class="settings-grid">
+            <section class="settings-card"><h3>👤 Conta</h3><label>Nome<input data-setting="name" placeholder="Seu nome" /></label><label>Foto<input data-setting="photo" type="url" placeholder="URL da foto (opcional)" /></label><label>E-mail<input data-setting="email" type="email" placeholder="seu@email.com" /></label><div class="setting-readonly"><span>Provedor de login</span><strong>Local / sem login</strong></div></section>
+            <section class="settings-card"><h3>📚 Estudos</h3><div class="settings-fields"><label>Meta diária (horas)<input data-setting="dailyGoal" type="number" min="0" max="24" step=".5" value="2" /></label><label>Meta semanal (horas)<input data-setting="weeklyGoal" type="number" min="0" max="168" step=".5" value="10" /></label><label>Meta mensal (horas)<input data-setting="monthlyGoal" type="number" min="0" max="744" step=".5" value="40" /></label></div><label class="setting-toggle"><input data-setting="autoSessions" type="checkbox" /> Registrar sessões automaticamente</label><label class="setting-toggle"><input data-setting="manualHours" type="checkbox" /> Permitir adicionar horas manualmente</label></section>
+            <section class="settings-card"><h3>⏱️ Cronômetro</h3><label class="setting-toggle"><input data-setting="timerSound" type="checkbox" checked /> Som ao finalizar</label><label class="setting-toggle"><input data-setting="autoBreak" type="checkbox" /> Pausa automática</label><label class="setting-toggle"><input data-setting="showTimer" type="checkbox" checked /> Mostrar tempo na tela</label></section>
+            <section class="settings-card"><h3>🎨 Aparência</h3><div class="segmented"><label><input data-setting="theme" type="radio" name="theme" value="light" /> Claro</label><label><input data-setting="theme" type="radio" name="theme" value="dark" checked /> Escuro</label><label><input data-setting="theme" type="radio" name="theme" value="system" /> Sistema</label></div><label>Tamanho da interface<select data-setting="uiSize"><option value="normal">Normal</option><option value="large">Grande</option><option value="compact">Compacta</option></select></label><label class="setting-toggle"><input data-setting="animations" type="checkbox" checked /> Animações</label></section>
+            <section class="settings-card"><h3>🔔 Notificações</h3><label class="setting-toggle"><input data-setting="studyReminder" type="checkbox" /> Lembrete para estudar</label><label class="setting-toggle"><input data-setting="goalNotification" type="checkbox" /> Meta diária</label><label class="setting-toggle"><input data-setting="streakNotification" type="checkbox" /> Sequência</label><label class="setting-toggle"><input data-setting="achievementNotification" type="checkbox" /> Conquistas</label></section>
+            <section class="settings-card"><h3>📊 Dados e progresso</h3><div class="settings-actions"><button class="secondary-btn" id="export-data">↓ Exportar dados</button><button class="danger-btn" id="clear-history-data">Limpar histórico</button></div><p class="settings-help">Exporta anotações, quadros, cálculos e preferências em um arquivo JSON.</p></section>
+            <section class="settings-card"><h3>🔐 Segurança</h3><div class="setting-readonly"><span>Sessões</span><strong>1 sessão local ativa</strong></div><div class="setting-readonly"><span>Dispositivos</span><strong>Este dispositivo</strong></div><div class="setting-readonly"><span>Contas conectadas</span><strong>Nenhuma</strong></div></section>
+            <section class="settings-card"><h3>♿ Acessibilidade</h3><label class="setting-toggle"><input data-setting="highContrast" type="checkbox" /> Alto contraste</label><label class="setting-toggle"><input data-setting="reducedMotion" type="checkbox" /> Reduzir animações</label><label>Tamanho do texto<select data-setting="textSize"><option value="normal">Normal</option><option value="large">Grande</option><option value="xlarge">Muito grande</option></select></label></section>
+            <section class="settings-card about-card"><h3>ℹ️ Sobre</h3><p><strong>Estuda+</strong> · Versão 1.0.0</p><div><a href="#" data-info="Termos de uso">Termos</a><a href="#" data-info="Política de privacidade">Privacidade</a></div></section>
+          </div>
+        </section>
+      </main>
+    </div>
+    <aside class="floating-timer" aria-label="Cronômetro de estudos">
+      <div class="timer-header"><span class="timer-led"></span><span>FOCO // TIMER</span><button id="timer-minimize" class="timer-minimize" aria-label="Minimizar cronômetro">−</button></div>
+      <div class="timer-body">
+        <div class="timer-mode" role="group" aria-label="Modo do cronômetro"><button class="timer-mode-btn active" data-timer-minutes="25">FOCO 25</button><button class="timer-mode-btn" data-timer-minutes="5">PAUSA 05</button><button class="timer-mode-btn" data-timer-minutes="50">FOCO 50</button></div>
+        <output id="timer-display" class="timer-display" aria-live="polite">25:00</output>
+        <div class="timer-controls"><button id="timer-reset" aria-label="Reiniciar cronômetro">↺</button><button id="timer-toggle" class="timer-start">INICIAR</button></div>
+      </div>
+    </aside>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
